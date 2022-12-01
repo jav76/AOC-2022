@@ -76,7 +76,7 @@ def GetTestInput(day):
 
         return inputText
 
-def RunSolution(day, part = None):
+def RunSolution(day, part = None, test = False):
     if os.path.isdir(f"Day{day}"):
         if os.path.exists(f"Day{day}/Day{day}Solution.py"):
             # Add specified day directory to path and import it
@@ -85,12 +85,13 @@ def RunSolution(day, part = None):
             soln = importlib.import_module(f"Day{day}Solution")
 
             if part == 1:
-                soln.Part1()
+                soln.Part1(test)
             elif part == 2:
-                soln.Part2()
+                soln.Part2(test)
             elif part == None:
-                soln.Part1()
-                soln.Part2()
+                soln.Part1(test)
+                soln.Part2(test)
+
         else:
             print(f"No solution exists yet for day {day}.")
             response = input(f"Initialize a new solution now for day {day}? (Y/N)")
@@ -137,5 +138,5 @@ if __name__ == "__main__":
         SSID = GetSSID()
         GetInput(day, SSID)
 
-    RunSolution(day, args.solution)
+    RunSolution(day, args.solution, args.test)
 

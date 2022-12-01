@@ -56,22 +56,18 @@ def Part1Internal(input):
     # solution processing
     print()
 
-def Part1():
+def Part1(test = False):
     Part1Internal("Decide how to process input here")
 
-def Part1Test():
-    Part1Internal()
 #####################################
 
 #####################################
 def Part2Internal(input):
     print()
 
-def Part2():
+def Part2(test = False):
     Part2Internal()
 
-def Part2Test():
-    Part2Internal()
 #####################################
 
 
@@ -99,14 +95,6 @@ if __name__ == "__main__":
 
     if args.part:
         if args.part == 1:
-            if args.test:
-                Part1Test()
-            else:
-                Part1()
+            Part1(args.test)
         elif args.part == 2:
-            if args.test:
-                Part2Test()
-            else:
-                Part2()
-
-
+            Part2(args.test)
