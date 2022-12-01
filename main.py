@@ -9,7 +9,7 @@ from shutil import copyfile
 from datetime import datetime
 from urllib.request import urlopen
 
-CURRENT_YEAR = 2021
+CURRENT_YEAR = 2022
 
 
 def GetSSID(path = None):
@@ -36,6 +36,7 @@ def GetInput(day, SSID):
         data = requests.get(url, cookies = cookies)
     except Exception as e:
         print(f"Error with request:{e}")
+        return None
 
     if data.status_code == 200:
         dataText = data.text
@@ -73,7 +74,7 @@ def GetTestInput(day):
         elementPosEnd = htmltext.find("</code></pre>")
         inputText = htmltext[elementPosStart + len(element):elementPosEnd]
 
-    return inputText
+        return inputText
 
 def RunSolution(day, part = None):
     if os.path.isdir(f"Day{day}"):
@@ -130,12 +131,7 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    # Get the current day if not specified
-    if args.day is None:
-        date = datetime.now()
-        day = date.strftime("%d")
-    else:
-        day = args.day
+    day = args.day
 
     if args.input:
         SSID = GetSSID()
