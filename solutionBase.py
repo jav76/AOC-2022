@@ -6,7 +6,7 @@ import argparse
 currentDay = __file__[__file__.rfind("Day") + 3:__file__.rfind("Solution")]
 filePath = os.path.realpath(__file__)
 
-def GetInputLinesDict(test = False):
+def GetInputLinesList(test = False):
     path = ""
     if test:
         path = fr"{filePath}\..\Input.test.txt"
@@ -32,7 +32,7 @@ def GetInputRaw(test = False):
     except Exception as e:
         print(f"Could not read input file:\n{e}")
 
-def GetInputNumbersDict(test = False):
+def GetInputNumbersList(test = False):
     path = ""
     if test:
         path = fr"{filePath}\..\Input.test.txt"
@@ -50,23 +50,34 @@ def GetInputNumbersDict(test = False):
 
     return returnList
 
+def WriteSolution(day, output, path = None):
+    if path == None:
+        path = fr"{filePath}\..\Output{day}.txt"
+
+    try:
+        with open(path, 'w') as f:
+            f.write(output)
+    except Exception as e:
+        print(f"Could not write output file:\n{e}")
 
 #####################################
 def Part1Internal(input):
     # solution processing
-    print()
+    print(input)
 
 def Part1(test = False):
-    Part1Internal("Decide how to process input here")
+    soln = Part1Internal(GetInputLinesList(test))
+    WriteSolution(1, soln)
 
 #####################################
 
 #####################################
 def Part2Internal(input):
-    print()
+    print(input)
 
 def Part2(test = False):
-    Part2Internal()
+    soln = Part2Internal(GetInputLinesList(test))
+    WriteSolution(2, soln)
 
 #####################################
 
