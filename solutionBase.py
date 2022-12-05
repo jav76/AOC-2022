@@ -50,9 +50,9 @@ def GetInputNumbersList(test = False):
 
     return returnList
 
-def WriteSolution(day, output, path = None):
+def WriteSolution(part, output, path = None):
     if path == None:
-        path = fr"{filePath}\..\Output{day}.txt"
+        path = fr"{filePath}\..\Output{part}.txt"
 
     try:
         with open(path, 'w') as f:
