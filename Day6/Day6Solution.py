@@ -69,6 +69,7 @@ def Part1Internal(input):
         for j in currentWindow:
             if currentWindow.count(j) > 1:
                 charRepeated = True
+                break
 
         if charRepeated == False:
             return str(i + 4)
@@ -91,6 +92,7 @@ def Part2Internal(input):
         for j in currentWindow:
             if currentWindow.count(j) > 1:
                 charRepeated = True
+                break
 
         if charRepeated == False:
             return str(i + 14)
