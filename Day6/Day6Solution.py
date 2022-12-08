@@ -63,20 +63,42 @@ def WriteSolution(part, output, path = None):
 #####################################
 def Part1Internal(input):
     # solution processing
-    print(input)
+    for i in range(0, len(input) - 3):
+        currentWindow = input[i:i+4]
+        charRepeated = False
+        for j in currentWindow:
+            if currentWindow.count(j) > 1:
+                charRepeated = True
+                break
+
+        if charRepeated == False:
+            return str(i + 4)
+
+
+
 
 def Part1(test = False):
-    soln = Part1Internal(GetInputLinesList(test))
+    soln = Part1Internal(GetInputRaw(test))
     WriteSolution(1, soln)
 
 #####################################
 
 #####################################
 def Part2Internal(input):
-    print(input)
+    # solution processing
+    for i in range(0, len(input) - 13):
+        currentWindow = input[i:i+14]
+        charRepeated = False
+        for j in currentWindow:
+            if currentWindow.count(j) > 1:
+                charRepeated = True
+                break
+
+        if charRepeated == False:
+            return str(i + 14)
 
 def Part2(test = False):
-    soln = Part2Internal(GetInputLinesList(test))
+    soln = Part2Internal(GetInputRaw(test))
     WriteSolution(2, soln)
 
 #####################################
